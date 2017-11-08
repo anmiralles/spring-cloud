@@ -1,0 +1,8 @@
+# Spring configuration server
+spring:
+  application:
+    name: demo
+  cloud:
+    config:
+      uri: http://localhost:8888
+      fail-fast: true

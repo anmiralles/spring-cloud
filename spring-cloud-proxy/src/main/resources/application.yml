@@ -1,0 +1,38 @@
+#Component Info
+info:
+  component: proxy
+
+#Spring Application Name
+spring:
+  application:
+    name: proxy
+
+#Server Port
+server:
+  port: 8765
+
+#Endpoints
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
+
+#Zuul routes active
+zuul:
+  routes:
+    spring-cloud-rest:
+      path: /public/**
+      serviceId: demo
+
+#Eureka Instance ID
+eureka:
+  instance:
+    instanceId: ${spring.application.name}:${server.port}
+
+#Ribbon Activation
+ribbon:
+  eureka:
+    enabled: true
